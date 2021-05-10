@@ -8,12 +8,26 @@ import "./style.css";
 function Card(props) {
 
 	const [score, setScore] = useState(0)
-    console.log(score)
+
+
+	function handleClick(e) {
+    e.preventDefault();
+		let symbol = e.target.innerText 
+			if (symbol === "+"){
+				setScore(score + 1)
+			} else{
+				setScore(score - 1)
+			}
+			console.log(score)
+  }
+
+	
+
 	return (
 		<div className="card dark-green text-color">
-			<Button idName="plus" content="+" onClick={() => setScore(score + 1)  }></Button>
+			<Button idName="plus" content="+" onClick={handleClick}></Button>
 			<ScoreDisplay content={score}></ScoreDisplay>
-			<Button idName="minus" content="-" onClick={() => setScore(this.score -1) }></Button>
+			<Button idName="minus" content="-" onClick={(e) => setScore(score - 1) }></Button>
 		</div>
 	);
 }
