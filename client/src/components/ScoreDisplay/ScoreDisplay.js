@@ -6,6 +6,7 @@ function ScoreDisplay(props) {
     
 	return (
 		<div className="score-display">
+      {props.content}
 		</div>
 	);
 }
