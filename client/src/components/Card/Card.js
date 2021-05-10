@@ -1,6 +1,7 @@
 
 import React, {useState} from "react";
 import Button from "../Button/Button";
+import SaveButton from "../Save/SaveButton";
 import ScoreDisplay from "../ScoreDisplay/ScoreDisplay";
 import "./style.css";
 
@@ -18,8 +19,12 @@ function Card(props) {
 			} else{
 				setScore(score - 1)
 			}
-			console.log(score)
   }
+
+	function saveScore(e){
+		e.preventDefault();
+		localStorage.setItem("score", JSON.stringify(score))
+	}
 
 	
 
@@ -28,6 +33,7 @@ function Card(props) {
 			<Button idName="plus" content="+" onClick={handleClick}></Button>
 			<ScoreDisplay content={score}></ScoreDisplay>
 			<Button idName="minus" content="-" onClick={(e) => setScore(score - 1) }></Button>
+			<SaveButton onClick={saveScore}/>
 		</div>
 	);
 }

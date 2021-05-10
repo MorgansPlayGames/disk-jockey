@@ -1,0 +1,10 @@
+.save{
+border-radius: 25px;
+width: 30%;
+height: 40px;
+margin: auto;
+padding-top: 20px;
+padding-bottom: 20px;
+justify-content: center;
+cursor: pointer;
+}
