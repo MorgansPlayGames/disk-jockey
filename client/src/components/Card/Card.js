@@ -7,8 +7,9 @@ import "./style.css";
 
 
 function Card(props) {
-	let storedScores = [];
-	storedScores = JSON.parse(localStorage.getItem("score")) || [];
+	let storedScores = {};
+	storedScores = JSON.parse(localStorage.getItem("score")) || {};
+	console.log(storedScores)
 	
 
 	const [score, setScore] = useState(0)
@@ -26,10 +27,12 @@ function Card(props) {
 
 	function saveScore(e){
 		e.preventDefault();
+		let date = Date.now()
 		
-		storedScores.push(score)
-		console.log()
+		storedScores[date]=score
+		console.log(storedScores)
 		localStorage.setItem("score", JSON.stringify(storedScores))
+		setScore(0)
 	}
 
 	
